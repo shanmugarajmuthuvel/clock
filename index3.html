@@ -1,0 +1,47 @@
+<html>
+<head><title>shanmugaraj</title>
+<style>
+h1{
+color:blue;
+}
+body{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+
+</style>
+</head>
+<body>
+<h1 id="clock"></h1>
+<h6 id="otp"></h6>
+<script>
+    
+     const time=()=>{
+	   var head=document.getElementById("clock")
+	   var date=new Date(),
+	       hours=date.getHours(),
+		   minutes=date.getMinutes(),
+		   seconds=date.getSeconds();
+	<!--let 12 hours clock-----> 
+	 var day;
+	     day=hours<12 ? "AM":"pM"
+		 hours=hours>12 ? (hours-12):hours
+		 hours=hours==0 ? (hours=12):hours
+    <!-- we add 0 value if time less than 10-- -->
+        hours=hours<10 ? `0${hours}`:hours
+        minutes=minutes<10 ? `0${minutes}`:minutes
+        seconds=seconds<10 ? `0${seconds}`:seconds
+        head.textContent=`${hours}:${minutes}:${seconds}:${day}`
+  }
+time()
+setInterval(time,1000)  
+	       
+	 
+
+</script>
+</body>
+</html>
